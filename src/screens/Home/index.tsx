@@ -1,10 +1,10 @@
 import { API_URL } from '@env';
 
 import { View, Image, FlatList } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { GameCard, GameCardProps } from '../../components/GameCard';
 import { Heading } from '../../components/Heading';
-import { GAMES } from '../../utils/games';
 
 import logoImg from '../../assets/logo-nlw-esports.png';
 
@@ -21,7 +21,7 @@ export function Home() {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Image source={logoImg} style={styles.logo} />
 
       <Heading
@@ -37,6 +37,6 @@ export function Home() {
         showsHorizontalScrollIndicator={false}
         horizontal
       />
-    </View>
+    </SafeAreaView>
   );
 }
