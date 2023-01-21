@@ -5,6 +5,7 @@ import { TouchableOpacity, View, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Background } from '../../components/Background';
 import { Heading } from '../../components/Heading';
+import { DuoCard } from '../../components/DuoCard';
 
 import logoImg from '../../assets/logo-nlw-esports.png';
 
@@ -45,6 +46,8 @@ export function Game() {
         />
 
         <Heading title={game.title} subtitle="Conecte-se e comece a jogar!" />
+
+        <DuoCard />
       </SafeAreaView>
     </Background>
   );
