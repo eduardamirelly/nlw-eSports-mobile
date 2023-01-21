@@ -1,6 +1,6 @@
 import { API_URL } from '@env';
 
-import { View, Image, FlatList } from 'react-native';
+import { Image, FlatList } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { GameCard, GameCardProps } from '../../components/GameCard';
