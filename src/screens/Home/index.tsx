@@ -1,5 +1,7 @@
 import { API_URL } from '@env';
 
+import { useNavigation } from '@react-navigation/native';
+
 import { Image, FlatList } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -14,6 +16,11 @@ import { useEffect, useState } from 'react';
 
 export function Home() {
   const [games, setGames] = useState<GameCardProps[]>([]);
+  const navigation = useNavigation();
+
+  function handleOpenGame() {
+    navigation.navigate('game');
+  }
 
   useEffect(() => {
     fetch(`${API_URL}/games`)
@@ -35,7 +42,9 @@ export function Home() {
           contentContainerStyle={styles.contentList}
           data={games}
           keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <GameCard data={item} />}
+          renderItem={({ item }) => (
+            <GameCard data={item} onPress={handleOpenGame} />
+          )}
           showsHorizontalScrollIndicator={false}
           horizontal
         />
