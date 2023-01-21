@@ -8,6 +8,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Background } from '../../components/Background';
 import { Heading } from '../../components/Heading';
 import { DuoCard, DuoCardProps } from '../../components/DuoCard';
+import { DuoMatch } from '../../components/DuoMatch';
 
 import logoImg from '../../assets/logo-nlw-esports.png';
 
@@ -22,6 +23,9 @@ export function Game() {
   const game = route.params as GameParams;
 
   const [duos, setDuos] = useState<DuoCardProps[]>([]);
+  const [discordDuoSelected, setDiscordDuoSelected] = useState(
+    'eduardamirelly#0318'
+  );
 
   useEffect(() => {
     fetch(`${API_URL}/games/${game.id}/ads`)
@@ -74,6 +78,12 @@ export function Game() {
               Não há anúncios publicados ainda.
             </Text>
           )}
+        />
+
+        <DuoMatch
+          discord={discordDuoSelected}
+          onClose={() => setDiscordDuoSelected('')}
+          visible={discordDuoSelected.length > 0}
         />
       </SafeAreaView>
     </Background>
